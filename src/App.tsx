@@ -1,0 +1,33 @@
+import { AnimatePresence, MotionConfig, useReducedMotion } from "motion/react";
+import { useCallback, useState } from "react";
+import { Cursor } from "@/components/layout/Cursor";
+import { Footer } from "@/components/layout/Footer";
+import { Navbar } from "@/components/layout/Navbar";
+import { Preloader } from "@/components/layout/Preloader";
+import { Hero } from "@/components/sections/Hero";
+
+export default function App() {
+  const reduce = useReducedMotion();
+  const [loading, setLoading] = useState(!reduce);
+  const done = useCallback(() => setLoading(false), []);
+
+  return (
+    // reducedMotion="user": transforms/layout animations are skipped for users who ask.
+    <MotionConfig reducedMotion="user">
+      <a
+        href="#main"
+        className="label fixed top-3 left-3 z-[90] -translate-y-20 rounded-full bg-paper px-4 py-2 text-ink focus:translate-y-0"
+      >
+        Skip to content
+      </a>
+      <AnimatePresence>{loading && <Preloader key="preloader" onComplete={done} />}</AnimatePresence>
+      <Cursor />
+      <div className="grain" aria-hidden />
+      <Navbar />
+      <main id="main">
+        <Hero ready={!loading} />
+      </main>
+      <Footer />
+    </MotionConfig>
+  );
+}
