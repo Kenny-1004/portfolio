@@ -5,7 +5,10 @@ import { Footer } from "@/components/layout/Footer";
 import { Navbar } from "@/components/layout/Navbar";
 import { Preloader } from "@/components/layout/Preloader";
 import { About } from "@/components/sections/About";
+import { Contact } from "@/components/sections/Contact";
 import { Hero } from "@/components/sections/Hero";
+import { Interests } from "@/components/sections/Interests";
+import { Journey } from "@/components/sections/Journey";
 import { Projects } from "@/components/sections/Projects";
 import { TechStack } from "@/components/sections/TechStack";
 import { Marquee } from "@/components/ui/Marquee";
@@ -36,6 +39,9 @@ export default function App() {
         <About />
         <TechStack />
         <Projects />
+        <Journey />
+        <Interests />
+        <Contact />
       </main>
       <Footer />
     </MotionConfig>

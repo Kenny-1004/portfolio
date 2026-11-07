@@ -7,7 +7,8 @@ import { visibleSocials } from "@/data/social";
 import { cn, scrollToId } from "@/lib/utils";
 import { Container } from "./Container";
 
-const sectionIds = navItems.map((n) => n.id);
+// Observe every section (not just linked ones) so the pill clears over unlinked sections.
+const sectionIds = ["top", "about", "stack", "work", "journey", "interests", "contact"];
 
 /**
  * Minimal top bar.
