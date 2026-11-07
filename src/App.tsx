@@ -6,6 +6,7 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Preloader } from "@/components/layout/Preloader";
 import { About } from "@/components/sections/About";
 import { Hero } from "@/components/sections/Hero";
+import { Projects } from "@/components/sections/Projects";
 import { TechStack } from "@/components/sections/TechStack";
 import { Marquee } from "@/components/ui/Marquee";
 
@@ -34,6 +35,7 @@ export default function App() {
         <Marquee items={marqueeItems} />
         <About />
         <TechStack />
+        <Projects />
       </main>
       <Footer />
     </MotionConfig>

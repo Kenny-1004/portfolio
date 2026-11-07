@@ -43,13 +43,17 @@ export function Cursor() {
     };
     const onLeave = () => setVisible(false);
     const onDown = () => setPressed(true);
+    // A click often opens/closes UI under a stationary pointer — drop any stale label.
+    const onClick = () => setState({ mode: "default" });
     const onUp = () => setPressed(false);
 
     window.addEventListener("pointermove", onMove, { passive: true });
     document.documentElement.addEventListener("pointerleave", onLeave);
     window.addEventListener("pointerdown", onDown);
     window.addEventListener("pointerup", onUp);
+    window.addEventListener("click", onClick);
     return () => {
+      window.removeEventListener("click", onClick);
       document.documentElement.classList.remove("has-custom-cursor");
       window.removeEventListener("pointermove", onMove);
       document.documentElement.removeEventListener("pointerleave", onLeave);
@@ -78,7 +82,7 @@ export function Cursor() {
             borderColor: state.mode === "default" ? "rgba(245,245,245,0.35)" : "rgba(245,245,245,0.8)",
           }}
           transition={{ duration: 0.45, ease: ease.expo }}
-          className="grid -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full border mix-blend-difference"
+          className="grid -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full border"
           style={{ mixBlendMode: state.mode === "label" ? "normal" : "difference" }}
         >
           <AnimatePresence>
