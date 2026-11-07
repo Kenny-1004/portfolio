@@ -106,7 +106,7 @@ export function Footer() {
         <motion.p
           style={{ y, opacity }}
           transition={{ ease: ease.expo }}
-          className="text-center text-[14.2vw] leading-[0.8] font-medium tracking-[-0.06em] whitespace-nowrap text-ink-3 select-none"
+          className="text-center text-[16.4vw] leading-[0.8] font-medium tracking-[-0.06em] whitespace-nowrap text-ink-3 select-none"
         >
           {site.firstName} <span className="serif-italic tracking-[-0.02em]">{site.lastName}</span>
         </motion.p>

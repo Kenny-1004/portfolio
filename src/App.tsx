@@ -4,7 +4,11 @@ import { Cursor } from "@/components/layout/Cursor";
 import { Footer } from "@/components/layout/Footer";
 import { Navbar } from "@/components/layout/Navbar";
 import { Preloader } from "@/components/layout/Preloader";
+import { About } from "@/components/sections/About";
 import { Hero } from "@/components/sections/Hero";
+import { Marquee } from "@/components/ui/Marquee";
+
+const marqueeItems = ["Frontend", "Backend", "Databases", "Intelligent Systems", "Financial Markets", "Data"];
 
 export default function App() {
   const reduce = useReducedMotion();
@@ -26,6 +30,8 @@ export default function App() {
       <Navbar />
       <main id="main">
         <Hero ready={!loading} />
+        <Marquee items={marqueeItems} />
+        <About />
       </main>
       <Footer />
     </MotionConfig>
