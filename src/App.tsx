@@ -6,6 +6,7 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Preloader } from "@/components/layout/Preloader";
 import { About } from "@/components/sections/About";
 import { Hero } from "@/components/sections/Hero";
+import { TechStack } from "@/components/sections/TechStack";
 import { Marquee } from "@/components/ui/Marquee";
 
 const marqueeItems = ["Frontend", "Backend", "Databases", "Intelligent Systems", "Financial Markets", "Data"];
@@ -32,6 +33,7 @@ export default function App() {
         <Hero ready={!loading} />
         <Marquee items={marqueeItems} />
         <About />
+        <TechStack />
       </main>
       <Footer />
     </MotionConfig>
